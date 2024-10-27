@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+  <h2>Users</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>fName</th>
+      <th>lName</th>
+    </tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.f_name}"></td>
+      <td th:text="${user.l_name}"></td>
+      <td><a th:href="@{/users/user-update/{id}(id = ${user.id})}">Edit</a></td>
+      <td><a th:href="@{/users/user-delete/{id}(id = ${user.id})}">Delete</a></td>
+    </tr>
+    <br/>
+  </table>
+  <a href="/users/user-create">Create user</a>
+</body>
+</html>
